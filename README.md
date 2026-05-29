@@ -19,6 +19,7 @@ Thanks to [@david4599](https://github.com/david4599) for infos about color tags.
 * flashtest.py: Test tool to program the remote control frames of the ESL Blaster (more work needed).
 * vb6: Windows GUI client and VB6 source (sorry).
 * PriceHax: Android app, doubles as a barcode scanner for quick ESL updates.
+* flipperzero: Flipper Zero app plus a Python job exporter (`tools_python/precir2flipper.py`).
 
 ## FAQ
 
@@ -58,4 +59,3 @@ There's no cracking, exploit, patent or copyright infrigement going on so IMO it
 
 ***My tricolor-capable ESL shows red garbage after an image update***
 Transmit the image in tricolor mode. Transmitting black and white images to tricolor ESLs doesn't clear the red layer.
-

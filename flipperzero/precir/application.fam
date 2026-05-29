@@ -1,0 +1,9 @@
+App(
+    appid="precir",
+    name="PrecIR",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="precir_main",
+    requires=["gui", "dialogs", "storage"],
+    stack_size=4 * 1024,
+    fap_category="Infrared",
+)
