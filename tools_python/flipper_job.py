@@ -81,6 +81,8 @@ def build_image_job(image_path, barcode, page=1, color=0, pos_x=0, pos_y=0, forc
 
     plid = _barcode_to_plid(barcode)
     pixels = _image_convert(image, 0, color)
+    if not pixels:
+        raise ValueError("The image must contain at least one pixel.")
     if color:
         pixels += _image_convert(image, 1, color)
 

@@ -342,7 +342,7 @@ static void precir_draw_callback(Canvas* canvas, void* context) {
     } else if(app->loaded) {
         snprintf(line, sizeof(line), "Frames: %lu", (unsigned long)app->frame_count);
     } else {
-        snprintf(line, sizeof(line), "OK: choose  RIGHT: choose");
+        snprintf(line, sizeof(line), "OK/RIGHT: choose job");
     }
     canvas_draw_str(canvas, 2, 42, line);
 
@@ -367,7 +367,7 @@ int32_t precir_main(void* p) {
         .name = furi_string_alloc(),
         .tx_mode = PrecirTxModeAuto,
     };
-    snprintf(app.status, sizeof(app.status), "Place jobs in apps_data/precir");
+    snprintf(app.status, sizeof(app.status), "Place jobs in apps_data/precir/jobs");
 
     view_port_draw_callback_set(app.view_port, precir_draw_callback, &app);
     view_port_input_callback_set(app.view_port, precir_input_callback, app.event_queue);
