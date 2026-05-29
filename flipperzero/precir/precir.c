@@ -61,7 +61,9 @@ static const uint16_t precir_pp16_pause_us[16] =
     {27, 51, 35, 43, 147, 123, 139, 131, 83, 59, 75, 67, 91, 115, 99, 107};
 
 static char* precir_trim(char* value) {
-    while(*value && isspace((unsigned char)*value)) value++;
+    while(*value && isspace((unsigned char)*value)) {
+        value++;
+    }
     char* end = value + strlen(value);
     while(end > value && isspace((unsigned char)end[-1])) {
         end--;

@@ -273,8 +273,8 @@ def main():
         frames, pp16 = build_raw_job(args.barcode, args.type, args.hex, args.count)
         output = args.output or default_output_path("raw", args.barcode)
     elif args.command == "page-dm":
-        duration = "forever" if args.duration == "forever" else int(args.duration)
-        frames, pp16 = build_page_dm_job(args.page, duration)
+        duration_value = "forever" if args.duration == "forever" else int(args.duration)
+        frames, pp16 = build_page_dm_job(args.page, duration_value)
         output = args.output or default_output_path("page_dm", f"page_{args.page}")
     elif args.command == "page-seg":
         frames, pp16 = build_page_seg_job(args.page, args.duration)

@@ -23,7 +23,7 @@ That keeps the device workflow simple and avoids entering long barcodes or image
 ## Step-by-step: build the Flipper app
 
 1. Install `ufbt` on your computer:
-   * `python -m pip install ufbt`
+   * `python -m pip install --user ufbt`
 2. Change to the app directory:
    * `cd <repo_root>/flipperzero/precir`
 3. Build the app:
