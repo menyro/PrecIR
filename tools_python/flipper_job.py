@@ -2,8 +2,6 @@ import argparse
 import os
 from pathlib import Path
 
-from imageio.v2 import imread
-
 import pr
 
 
@@ -68,6 +66,8 @@ def serialize_job(frames, pp16, output_path):
 
 
 def build_image_job(image_path, barcode, page=1, color=0, pos_x=0, pos_y=0, force_pp4=False):
+    from imageio.v2 import imread
+
     pp16 = 0 if force_pp4 else 1
     image = imread(image_path)
     width = image.shape[1]
