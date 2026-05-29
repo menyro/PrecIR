@@ -16,8 +16,8 @@ That keeps the device workflow simple and avoids entering long barcodes or image
 
 ## Files and folders
 
-* App source: `/tmp/workspace/menyro/PrecIR/flipperzero/precir`
-* Default generated jobs: `/tmp/workspace/menyro/PrecIR/flipperzero/jobs`
+* App source: `<repo_root>/flipperzero/precir`
+* Default generated jobs: `<repo_root>/flipperzero/jobs`
 * Recommended SD card destination: `/ext/apps_data/precir/jobs`
 
 ## Step-by-step: build the Flipper app
@@ -25,7 +25,7 @@ That keeps the device workflow simple and avoids entering long barcodes or image
 1. Install `ufbt` on your computer:
    * `python -m pip install ufbt`
 2. Change to the app directory:
-   * `cd /tmp/workspace/menyro/PrecIR/flipperzero/precir`
+   * `cd <repo_root>/flipperzero/precir`
 3. Build the app:
    * `ufbt`
 4. After a successful build, copy the generated `.fap` file to your Flipper using qFlipper or the SD card.
@@ -43,33 +43,33 @@ That keeps the device workflow simple and avoids entering long barcodes or image
 ### Image update
 
 ```bash
-cd /tmp/workspace/menyro/PrecIR
+cd <repo_root>
 python tools_python/precir2flipper.py image path/to/image.png 01234567890123456 --page 1 --color 0
 ```
 
 ### Segment display update
 
 ```bash
-cd /tmp/workspace/menyro/PrecIR
+cd <repo_root>
 python tools_python/precir2flipper.py segments 01234567890123456 00112233445566778899AABBCCDDEEFF00112233445566
 ```
 
 ### Raw frame
 
 ```bash
-cd /tmp/workspace/menyro/PrecIR
+cd <repo_root>
 python tools_python/precir2flipper.py raw 01234567890123456 DM 06C900000000 10
 ```
 
 ### Page change without a barcode
 
 ```bash
-cd /tmp/workspace/menyro/PrecIR
+cd <repo_root>
 python tools_python/precir2flipper.py page-dm 1 --duration 15
 python tools_python/precir2flipper.py page-seg 1 --duration 15s
 ```
 
-Generated jobs are written to `/tmp/workspace/menyro/PrecIR/flipperzero/jobs` by default unless `--output` is provided.
+Generated jobs are written to `<repo_root>/flipperzero/jobs` by default unless `--output` is provided.
 
 ## Step-by-step: upload the job file
 

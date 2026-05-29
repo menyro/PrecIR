@@ -60,6 +60,8 @@ def serialize_job(frames, pp16, output_path):
         handle.write("Version: 1\n")
         handle.write(f"Protocol: {'PP16' if pp16 else 'PP4'}\n")
         for frame in frames:
+            # The last two bytes added by terminate_frame() store the repeat count and are
+            # metadata for the job/app, not payload bytes that should be transmitted.
             handle.write(f"Frame: {_frame_repeats(frame)} {bytes(frame[:-2]).hex().upper()}\n")
 
     return output

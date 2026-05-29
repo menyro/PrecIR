@@ -18,6 +18,8 @@
 #define PRECIR_CARRIER_HZ 1000000U
 #define PRECIR_DUTY_CYCLE 0.5f
 #define PRECIR_FRAME_GAP_US 2000U
+#define PRECIR_MAX_FILE_SIZE (256 * 1024U)
+#define PRECIR_MAX_REPEATS 0xFFFFU
 
 typedef enum {
     PrecirTxModeAuto,
@@ -131,7 +133,7 @@ static bool precir_load_job(PrecirApp* app, const char* path) {
         if(!storage_file_open(file, path, FSAM_READ, FSOM_OPEN_EXISTING)) break;
 
         uint64_t size64 = storage_file_size(file);
-        if(size64 == 0 || size64 > (256 * 1024)) break;
+        if(size64 == 0 || size64 > PRECIR_MAX_FILE_SIZE) break;
 
         size_t size = (size_t)size64;
         char* buffer = malloc(size + 1);
@@ -166,7 +168,7 @@ static bool precir_load_job(PrecirApp* app, const char* path) {
                 char* value = precir_trim(trimmed + 6);
                 char* end = NULL;
                 unsigned long repeats = strtoul(value, &end, 10);
-                if(!end || repeats == 0 || repeats > 0xFFFF) {
+                if(!end || repeats == 0 || repeats > PRECIR_MAX_REPEATS) {
                     parse_failed = true;
                     break;
                 }
